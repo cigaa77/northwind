@@ -1,0 +1,31 @@
+<ul *ngIf="cartItem.length>0; else cartEmptyContent" class="nav navbar-nav navbar-right">
+  <li class="dropdown">
+    <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="glyphicon glyphicon-shopping-cart"></i>
+      {{totalCartItemPrice|currency:'USD':true}} ({{totalCartItem}})
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li> <a *ngFor="let item of cartItem">
+          <i class="btn btn-xs btn-danger glyphicon glyphicon-remove" (click)="cartService.removeFromCart(item.product)"></i>
+          {{item.product.productName|uppercase}} ({{item.quantity}})
+        </a>
+      </li>
+      <li role="separator" class="divider"></li>
+      <li>
+        <a class="text-center" routerLink="my-cart"><strong> To Cart</strong></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ng-template #cartEmptyContent>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+      <a class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="glyphicon glyphicon-shopping-cart"></i>
+        Cart Is Empty
+        <span class="caret"></span>
+      </a>
+
+    </li>
+  </ul>
+</ng-template>
