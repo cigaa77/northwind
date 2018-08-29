@@ -4,7 +4,8 @@
 
   <div class="form-group" [class.has-error]="fullName.invalid && fullName.dirty">
     <label class="control-label" for="fullName">FullName</label>
-    <input #fullName="ngModel" type="text" class="form-control" id="fullName" input="fullName" [(ngModel)]="model.fullName" required>
+    <input (change)="isDirty=true" #fullName="ngModel" type="text" class="form-control" id="fullName" input="fullName" [(ngModel)]="model.fullName"
+      required>
     <div *ngIf="fullName.invalid && fullName.dirty" class="help-block">Full name is required !</div>
   </div>
 

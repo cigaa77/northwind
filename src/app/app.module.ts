@@ -24,6 +24,8 @@ import { FormsModule } from '@angular/forms'
 
 import { Routes, RouterModule } from '@angular/router'
 import { AccountService } from './account/account.service';
+import { LoginGuard } from './account/login.guard';
+import { PendingChangesGuard } from './guards/pending-changes.guard';
 
 
 const appRoutes: Routes = [
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
   },
   {
     path: "shipping-detail",
-    component: ShippingDetailComponent
+    component: ShippingDetailComponent, canActivate: [LoginGuard],
+    canDeactivate:[PendingChangesGuard]
   },
   {
     path: "account",
@@ -81,7 +84,9 @@ const appRoutes: Routes = [
     { provide: 'apiUrl', useValue: "http://northwindapi.azurewebsites.net/api" },
     NotificationsService,
     CartService,
-    AccountService
+    AccountService,
+    LoginGuard,
+    PendingChangesGuard
   ],
   bootstrap: [AppComponent]
 })
