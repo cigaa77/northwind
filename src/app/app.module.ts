@@ -23,6 +23,7 @@ import { ProductFilterPipe } from './product/product-filter.pipe'
 import { FormsModule } from '@angular/forms'
 
 import { Routes, RouterModule } from '@angular/router'
+import { AccountService } from './account/account.service';
 
 
 const appRoutes: Routes = [
@@ -46,6 +47,10 @@ const appRoutes: Routes = [
   {
     path: "shipping-detail",
     component: ShippingDetailComponent
+  },
+  {
+    path: "account",
+    component: AccountComponent
   }
 ]
 
@@ -75,7 +80,8 @@ const appRoutes: Routes = [
   providers: [
     { provide: 'apiUrl', useValue: "http://northwindapi.azurewebsites.net/api" },
     NotificationsService,
-    CartService
+    CartService,
+    AccountService
   ],
   bootstrap: [AppComponent]
 })
