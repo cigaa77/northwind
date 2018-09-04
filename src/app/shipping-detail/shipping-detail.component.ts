@@ -14,7 +14,7 @@ export class ShippingDetailComponent implements OnInit, ComponentCanDeactivate {
   cities = [];
   model: ShippingDetail = new ShippingDetail('', '', true, -1);
 
-  isDirty = false
+  public isDirty = false;
   canDeactivate(): boolean {
     return !this.isDirty;
   }

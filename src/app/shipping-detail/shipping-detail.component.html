@@ -1,6 +1,6 @@
 <h4 class="page-header">Shipping Details</h4>
 
-<form #shippingForm="ngForm" (ngSubmit)="checkout(shippingForm)">
+<form #shippingForm="ngForm" (chance)="shippingFormIsDirty=true" (ngSubmit)="checkout(shippingForm)">
 
   <div class="form-group" [class.has-error]="fullName.invalid && fullName.dirty">
     <label class="control-label" for="fullName">FullName</label>
@@ -11,7 +11,7 @@
 
   <div class="form-group" [class.has-error]="adress.invalid && adress.dirty">
     <label class="control-label" for="adress">Adress</label>
-    <textarea #adress="ngModel" type="text" class="form-control" id="adress" input="adress" rows="3" [(ngModel)]="model.adress"
+    <textarea (change)="isDirty=true" #adress="ngModel" type="text" class="form-control" id="adress" input="adress" rows="3" [(ngModel)]="model.adress"
       required minlength="10">
 
     </textarea>

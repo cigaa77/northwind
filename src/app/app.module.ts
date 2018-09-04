@@ -26,6 +26,8 @@ import { Routes, RouterModule } from '@angular/router'
 import { AccountService } from './account/account.service';
 import { LoginGuard } from './account/login.guard';
 import { PendingChangesGuard } from './guards/pending-changes.guard';
+import { CanActivateGuardDeneme } from './deneme/canActivateGuardDeneme.service';
+import { CanDeactivateGuardDeneme } from './deneme/canDeactivateGuardDeneme.service';
 
 
 const appRoutes: Routes = [
@@ -48,8 +50,8 @@ const appRoutes: Routes = [
   },
   {
     path: "shipping-detail",
-    component: ShippingDetailComponent, canActivate: [LoginGuard],
-    canDeactivate:[PendingChangesGuard]
+    component: ShippingDetailComponent, canActivate: [CanActivateGuardDeneme],
+    canDeactivate:[CanDeactivateGuardDeneme],
   },
   {
     path: "account",
@@ -86,7 +88,7 @@ const appRoutes: Routes = [
     CartService,
     AccountService,
     LoginGuard,
-    PendingChangesGuard
+    PendingChangesGuard,CanActivateGuardDeneme,CanDeactivateGuardDeneme
   ],
   bootstrap: [AppComponent]
 })
