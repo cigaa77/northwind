@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Northwind';
+  
+  // Deneme Amaçlı
 
   public options = {
     position: ["bottom", "left"],
