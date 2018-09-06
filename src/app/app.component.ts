@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+// Deneme Amaçlı a2
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
